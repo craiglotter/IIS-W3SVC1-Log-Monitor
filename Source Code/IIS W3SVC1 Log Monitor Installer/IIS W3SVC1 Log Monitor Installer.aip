@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="ProductCode" Value="{E74A60F5-0B90-4BF2-BBE7-FFF76F3FBEDE}"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Craig Lotter"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{9A0091AB-2EC4-4E84-B52C-100572A6670A}"/>
+    <ROW Property="ProductName" Value="IIS W3SVC1 Log Monitor"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="Inputs_DIR" Directory_Parent="TARGETDIR" DefaultDir="Inputs"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Application_Icon.ico" ComponentId="{9C52FBCA-9E97-4244-B57F-87A0FB8DA107}" Directory_="Inputs_DIR" Attributes="0" Condition="" KeyPath="Application_Icon.ico_1" FullKeyPath="TARGETDIR\Inputs"/>
+    <ROW Component="Application_Loader.exe" ComponentId="{E4B4567C-5160-4811-ADB7-7128E00864CF}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Application_Loader.exe" FullKeyPath="TARGETDIR\Application_Loader.exe"/>
+    <ROW Component="IIS_W3SVC1_Log_Monitor.exe" ComponentId="{9B06F314-F911-4E83-A09B-1038C70F0E50}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="IIS_W3SVC1_Log_Monitor.exe" FullKeyPath="TARGETDIR\IIS W3SVC1 Log Monitor.exe"/>
+    <ROW Component="IIS_W3SVC1_Log_Template.mdb" ComponentId="{08A43D80-1AB1-4A0D-830E-0E3FCF0555D5}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="IIS_W3SVC1_Log_Template.mdb" FullKeyPath="TARGETDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="IIS_W3SVC1_Log_Monitor.exe IIS_W3SVC1_Log_Template.mdb Application_Loader.exe Application_Icon.ico"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Application_Loader.exe" Component_="Application_Loader.exe" FileName="Applic~1.exe|Application_Loader.exe" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\Application_Loader.exe" SelfReg="false"/>
+    <ROW File="Description.txt" Component_="IIS_W3SVC1_Log_Template.mdb" FileName="Descri~1.txt|Description.txt" Version="" Language="" Attributes="" SourcePath="..\..\Description.txt" SelfReg="false"/>
+    <ROW File="IIS_W3SVC1_Log_Template.mdb" Component_="IIS_W3SVC1_Log_Template.mdb" FileName="IISW3S~1.mdb|IIS W3SVC1 Log Template.mdb" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\IIS W3SVC1 Log Template.mdb" SelfReg="false"/>
+    <ROW File="Splash_Image.jpg_1" Component_="Application_Icon.ico" FileName="Splash~1.jpg|Splash_Image.jpg" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\Inputs\Splash_Image.jpg" SelfReg="false"/>
+    <ROW File="Splash_Image.psd" Component_="Application_Icon.ico" FileName="Splash~1.psd|Splash_Image.psd" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\Inputs\Splash_Image.psd" SelfReg="false"/>
+    <ROW File="Application_Icon.ico_1" Component_="Application_Icon.ico" FileName="Applic~1.ico|Application_Icon.ico" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\Inputs\Application_Icon.ico" SelfReg="false"/>
+    <ROW File="IIS_W3SVC1_Log_Monitor.exe" Component_="IIS_W3SVC1_Log_Monitor.exe" FileName="IISW3S~1.exe|IIS W3SVC1 Log Monitor.exe" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\obj\Release\IIS W3SVC1 Log Monitor.exe" SelfReg="false"/>
+    <ROW File="Inputs.txt_1" Component_="Application_Icon.ico" FileName="Inputs.txt" Version="" Language="" Attributes="" SourcePath="..\IIS W3SVC1 Log Monitor\Required Files\Inputs\Inputs.txt" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="AI_ViewReadme" Type="194" Source="viewer.exe" Target="[#Description.txt]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#Application_Loader.exe]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="IIS_W3SVC1_Log_Monitor" Directory_="SHORTCUTDIR" Name="IISW3S~1|IIS W3SVC1 Log Monitor" Component_="Application_Loader.exe" Target="[TARGETDIR]Application_Loader.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_IIS_W3SVC1_Log_Monitor" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall IIS W3SVC1 Log Monitor" Component_="Application_Loader.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="Images\Application_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="VersionNT OR  (Version9X &gt;= 490)" Description="[ProductName] cannot be installed on systems earlier than Windows Millennium."/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="10"/>
+    <ATTRIBUTE name="PackageName" value="Release\IIS W3SVC1 Log Monitor Installer"/>
+    <ATTRIBUTE name="IconPath" value="Images\Application_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
